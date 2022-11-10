@@ -1,11 +1,7 @@
 <template>
   <div id="app">
     <h1>Z</h1>
-      <div
-         class="user"
-         v-for="review in reviews.data"
-         :key="review.id"
-      >
+      <div class="user" v-for="review in reviews.data" :key="review.id">
 
       <div class="user-details">
         <h2 class="user-name">
@@ -46,21 +42,18 @@
       <div data-clamp="" id="ember159" class="we-clamp ember-view" ismorertl="false" style="height: 72px; -webkit-mask: linear-gradient(0deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 18.0001px, rgb(0, 0, 0) 18.0001px), linear-gradient(270deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 32.8px, rgb(0, 0, 0) 68.8002px);"><p dir="ltr" data-test-bidi="">{{ review.attributes.review }}</p>
 </div>
 
-  
-
-
     <button aria-hidden="true" tabindex="-1" class="we-truncate__button link" data-metrics-click="{&quot;actionType&quot;:&quot;more&quot;,&quot;targetType&quot;:&quot;button&quot;,&quot;targetId&quot;:&quot;More&quot;}" data-ember-action="" data-ember-action-251="251">
       more
     </button>
 </blockquote>
 
 <!----></div>
-        
+
 </div>
         <div id="ember162" class="ember-view l-column--grid l-column small-12 medium-6 large-4 small-valign-top l-column--equal-height"><div data-test-we-modal="page-overlay" id="ember163" class="ember-view"><!---->
 <!----></div>
 
-
+</div>
     </div><!-- v-for="review in reviews.data" -->
   </div><!-- id="app" -->
 </template>
