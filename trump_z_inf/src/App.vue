@@ -280,16 +280,16 @@
               <!-- START -->
               <!-- START -->
 
-                <div class="l-row" role="feed" aria-labelledby="section__headline">
+                <div class="l-row" role="feed" aria-labelledby="section__headline" style="display: flex">
 
               <div class="user" v-for="review in reviews.data" :key="review.id">
 
-                  <div id="ember142" class="ember-view l-column--grid l-column small-12 medium-6 large-4 small-valign-top l-column--equal-height">
+                  <div id="ember142" class="ember-view">
                     <div data-test-we-modal="page-overlay" id="ember143" class="ember-view">
                     </div>
 
 
-                    <div role="article" aria-labelledby="we-customer-review-0" aria-posinset="1" aria-setsize="-1" id="ember144" class="we-customer-review lockup ember-view" tabindex="0">
+                    <div role="article" aria-labelledby="we-customer-review-0" aria-posinset="1" aria-setsize="-1" id="ember144" class="we-customer-review lockup ember-view" tabindex="0" style="margin-left: 20px">
                       <figure aria-label="1 out of 5" id="ember145" class="we-star-rating ember-view we-customer-review__rating we-star-rating--large"><span class="we-star-rating-stars-outlines">
             <span class="we-star-rating-stars we-star-rating-stars-1"></span>
                         </span>
