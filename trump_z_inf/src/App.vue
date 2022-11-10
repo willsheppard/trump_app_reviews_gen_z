@@ -284,34 +284,31 @@
 
               <div class="user" v-for="review in reviews.data" :key="review.id">
 
-                  <div id="ember142" class="ember-view">
+                  <div id="ember142" class="ember-view" style="margin-left: 20px">
                     <div data-test-we-modal="page-overlay" id="ember143" class="ember-view">
                     </div>
 
 
-                    <div role="article" aria-labelledby="we-customer-review-0" aria-posinset="1" aria-setsize="-1" id="ember144" class="we-customer-review lockup ember-view" tabindex="0" style="margin-left: 20px">
-                      <figure aria-label="1 out of 5" id="ember145" class="we-star-rating ember-view we-customer-review__rating we-star-rating--large"><span class="we-star-rating-stars-outlines">
-            <span class="we-star-rating-stars we-star-rating-stars-1"></span>
+                    <div role="article" aria-labelledby="we-customer-review-0" aria-posinset="1" aria-setsize="-1" id="ember144" class="we-customer-review lockup ember-view" tabindex="0">
+                      <figure aria-label="{{ review.attributes.rating }} out of 5" id="ember145" class="we-star-rating ember-view we-customer-review__rating we-star-rating--large"><span class="we-star-rating-stars-outlines">
+            <span class="we-star-rating-stars we-star-rating-stars-{{ review.attributes.rating }}"></span>
                         </span>
                       </figure>
 
                       <div class="we-customer-review__header we-customer-review__header--user">
-                        <span dir="ltr" id="ember146" class="we-truncate we-truncate--single-line ember-view we-customer-review__user">  Sophie4231
-          </span>
+                        <span dir="ltr" id="ember146" class="we-truncate we-truncate--single-line ember-view we-customer-review__user">{{ review.attributes.userName }}</span>
 
                         <span class="we-customer-review__separator">, </span>
 
-                        <time data-test-customer-review-date="" datetime="2020-07-12T11:20:37.000Z" aria-label="July 12, 2020" class="we-customer-review__date">07/12/2020</time>
+                        <time data-test-customer-review-date="" datetime="2020-07-12T11:20:37.000Z" aria-label="July 12, 2020" class="we-customer-review__date">{{ review.attributes.date }}</time>
                       </div>
 
-                      <h3 dir="ltr" id="we-customer-review-0" class="we-truncate we-truncate--single-line ember-view we-customer-review__title"> Trump is 🤢
-                      </h3>
+                      <h3 dir="ltr" id="we-customer-review-0" class="we-truncate we-truncate--single-line ember-view we-customer-review__title">{{ review.attributes.title }}</h3>
 
                       <blockquote id="ember147" class="we-truncate we-truncate--multi-line we-truncate--interactive we-truncate--truncated ember-view we-customer-review__body">
 
-                        <!--div data-clamp="" id="ember149" class="we-clamp ember-view" ismorertl="false" style="height: 72px; -webkit-mask: linear-gradient(0deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 18.0001px, rgb(0, 0, 0) 18.0001px), linear-gradient(270deg, rgba(0, 0, 0, 0) 0px, rgba(0, 0, 0, 0) 32.8px, rgb(0, 0, 0) 68.8002px);"><p dir="ltr" data-test-bidi=""-->
                         <div>
-                          <p>Ok, I’m not a part of this whole “ gen z thing trying to remove the app” I seriously got the app because I wanted to see what trumps plans were for the election and all that kind of stuff. But unfortunately the app kept making my cell phone crash. It was constantly kicking me out of the app time and time again . So I thought it was probably just my phone. So I powered off my phone and waited a couple of minutes to get back the app . Then after about 10 minutes, I went back into the app and it continued to crash and kick me out. So then I was like whatever maybe my iPhone is broken and I just decided to drop the whole thing and ignore when my phone would crash. Well that was a bad mistake. Over the next couple of days my phone was constantly crashing. It didn’t matter if I was on Facebook or if I was on candy crush it was just constantly crashing. Now I know that some of you are thinking “oh your phone is just old “ but my phone had never done that before I got the app. It was constantly and constantly crashing and closing me out of apps I seriously think this app is no good for you and you seriously should not get it. Not to mention the fact that this app also took up a tremendous amount of storage on my phone. Please do not get the app, it’s software must be really out of date and will ruin your phone- not to mention I think it stole my information when it crashed. That being said I wish I could give this app a 0 but unfortunately I cannot. This app is no good!</p>
+                          <p>{{ review.attributes.review }}</p>
                         </div>
 
                         <!--button aria-hidden="true" tabindex="-1" class="we-truncate__button link" data-metrics-click="{&quot;actionType&quot;:&quot;more&quot;,&quot;targetType&quot;:&quot;button&quot;,&quot;targetId&quot;:&quot;More&quot;}" data-ember-action="" data-ember-action-250="250">
@@ -321,7 +318,7 @@
 
                     </div>
 
-                </div><!-- v-for="review in reviews.data" -->
+                  </div><!-- v-for="review in reviews.data" -->
 
                   </div>
 
@@ -621,8 +618,11 @@ export default {
       });
     },
     formatDate(dateString) {
-      let convertedDate = new Date(dateString);
-      return convertedDate.toDateString();
+      let rawDate = new Date(dateString);
+      var dateRegExp = /^(\d+).(\d+).(\d+)T", "g"/;
+      const m = dateRegExp.exec(rawDate);
+      const convertedDate = m[3] + '/' + m[2] + '/' + m[1];
+      return convertedDate; //.toDateString();
     }
   },
   beforeMount() {
